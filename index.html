@@ -40,8 +40,8 @@
     }
 
     .logo {
-      width: 70px;
-      height: 70px;
+      width: 122px; /* زيادة الحجم 75% */
+      height: 122px; /* زيادة الحجم 75% */
       margin-bottom: 10px;
     }
 
@@ -110,6 +110,25 @@
       font-weight: bold;
     }
 
+    /* أزرار إضافية */
+    .extra-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .extra-buttons button {
+      padding: 10px 20px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
     @media (max-width: 600px) {
       .card h2 {
         font-size: 1.5em;
@@ -155,6 +174,13 @@
       <a href="mailto:dr.sara@example.com">📧 dr.sara@example.com</a>
       <a href="https://wa.me/201234567890" target="_blank">📱 واتساب</a>
       <a href="https://www.instagram.com/dr.sara.nutrition" target="_blank">📸 انستجرام</a>
+    </div>
+
+    <!-- أزرار إضافية -->
+    <div class="extra-buttons">
+      <button onclick="scrollToSection('about')">من أنا</button>
+      <button onclick="scrollToSection('contact')">تواصل معي</button>
+      <button onclick="scrollToSection('services')">الحالات الخاصة بي</button>
     </div>
   </div>
 
@@ -211,6 +237,11 @@
       document.querySelector(".lang-switch").textContent = t.buttonText;
       document.documentElement.lang = currentLang;
       document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+    }
+
+    // Scroll to section function for buttons
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>
