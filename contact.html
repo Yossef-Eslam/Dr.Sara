@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Dr. Sara</title>
+  <style>
+    /* أضف الأنماط التي تم توفيرها في البداية هنا */
+  </style>
+</head>
+<body>
+  <header>
+    <button class="lang-switch" onclick="switchLanguage()">العربية</button>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Dr. Sara</h1>
+    <p>Clinical Nutritionist</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>
+        Book your appointment now or contact me via the following links:
+      </p>
+      <a href="mailto:dr.sara@example.com">📧 dr.sara@example.com</a>
+      <a href="https://wa.me/201234567890" target="_blank">📱 WhatsApp</a>
+      <a href="https://www.instagram.com/dr.sara.nutrition" target="_blank">📸 Instagram</a>
+    </div>
+    <footer>
+      &copy; 2025 Dr. Sara - All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Contact - Dr. Sara",
+        header: "Dr. Sara",
+        subtitle: "Clinical Nutritionist",
+        contactTitle: "Contact",
+        contactText: "Book your appointment now or contact me via the following links:",
+        footer: "&copy; 2025 Dr. Sara - All rights reserved",
+        buttonText: "العربية"
+      },
+      ar: {
+        title: "تواصل - د. سارة",
+        header: "د. سارة",
+        subtitle: "أخصائية تغذية علاجية",
+        contactTitle: "تواصل",
+        contactText: "احجز موعدك الآن أو تواصل معي عبر الروابط التالية:",
+        footer: "&copy; 2025 د. سارة - جميع الحقوق محفوظة",
+        buttonText: "English"
+      }
+    };
+
+    let currentLang = "en";
+
+    function switchLanguage() {
+      currentLang = currentLang === "en" ? "ar" : "en";
+      const t = translations[currentLang];
+
+      document.title = t.title;
+      document.querySelector("h1").textContent = t.header;
+      document.querySelector("header p").textContent = t.subtitle;
+      document.getElementById("contact").querySelector("h2").textContent = t.contactTitle;
+      document.getElementById("contact").querySelector("p").innerHTML = t.contactText;
+      document.querySelector("footer").innerHTML = t.footer;
+      document.querySelector(".lang-switch").textContent = t.buttonText;
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+    }
+  </script>
+</body>
+</html>

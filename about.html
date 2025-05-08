@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Dr. Sara</title>
+  <style>
+    /* أضف الأنماط التي تم توفيرها في البداية هنا */
+  </style>
+</head>
+<body>
+  <header>
+    <button class="lang-switch" onclick="switchLanguage()">العربية</button>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1>Dr. Sara</h1>
+    <p>Clinical Nutritionist</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        Dr. Sara is a certified clinical nutritionist helping you achieve a healthy and balanced lifestyle.
+      </p>
+    </div>
+    <footer>
+      &copy; 2025 Dr. Sara - All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "About Me - Dr. Sara",
+        header: "Dr. Sara",
+        subtitle: "Clinical Nutritionist",
+        aboutTitle: "About Me",
+        aboutText: "Dr. Sara is a certified clinical nutritionist helping you achieve a healthy and balanced lifestyle.",
+        footer: "&copy; 2025 Dr. Sara - All rights reserved",
+        buttonText: "العربية"
+      },
+      ar: {
+        title: "نبذة عني - د. سارة",
+        header: "د. سارة",
+        subtitle: "أخصائية تغذية علاجية",
+        aboutTitle: "نبذة عني",
+        aboutText: "د. سارة أخصائية تغذية علاجية حاصلة على شهادات معتمدة في مجال التغذية والصحة العامة. أساعدك على الوصول لنمط حياة صحي ومتوازن.",
+        footer: "&copy; 2025 د. سارة - جميع الحقوق محفوظة",
+        buttonText: "English"
+      }
+    };
+
+    let currentLang = "en";
+
+    function switchLanguage() {
+      currentLang = currentLang === "en" ? "ar" : "en";
+      const t = translations[currentLang];
+
+      document.title = t.title;
+      document.querySelector("h1").textContent = t.header;
+      document.querySelector("header p").textContent = t.subtitle;
+      document.getElementById("about").querySelector("h2").textContent = t.aboutTitle;
+      document.getElementById("about").querySelector("p").innerHTML = t.aboutText;
+      document.querySelector("footer").innerHTML = t.footer;
+      document.querySelector(".lang-switch").textContent = t.buttonText;
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+    }
+  </script>
+</body>
+</html>
